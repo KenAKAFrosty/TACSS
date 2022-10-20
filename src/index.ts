@@ -1,5 +1,5 @@
-const helloWorld = { hello: "world" }
+const helloWorld = { hello: "world" };
 
 export function getHelloWorld() {
-    return helloWorld
+    return helloWorld;
 }
