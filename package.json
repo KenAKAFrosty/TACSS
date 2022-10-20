@@ -1,0 +1,25 @@
+{
+    "name": "tacss",
+    "version": "0.0.1",
+    "description": "Type-Assisted CSS",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KenAKAFrosty/TACSS.git"
+    },
+    "keywords": [
+        "CSS",
+        "Types",
+        "Typesafe",
+        "React"
+    ],
+    "author": "KenAKAFrosty",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/KenAKAFrosty/TACSS/issues"
+    },
+    "homepage": "https://github.com/KenAKAFrosty/TACSS#readme"
+}
