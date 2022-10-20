@@ -82,6 +82,7 @@ export function tacssReturn(component: JSX.Element) {
     </>
 }
 
+
 function getAllClassNamesFromComponent(component: JSX.Element, classNameStore: { [key: string]: boolean }) {
     if (component.props.children) {
         if (Array.isArray(component.props.children)) {
@@ -119,69 +120,6 @@ export function extractSelectorAndCss(cssString: string) {
     const regEx = new RegExp(selector, "g");
     return [selector, cssString.slice(i).replace(regEx, "")]
 }
-
-export function convertCssPropertiesToString(cssProperties: CSSProperties) {
-
-    let string = '{';
-    for (const prop in cssProperties) {
-        const tacssProp = prop as keyof CSSProperties
-        let value = cssProperties[tacssProp];
-        if (typeof value === "number") value = standardizedNumberValues(prop as keyof CSSProperties, value);
-
-        const convertedProp = convertFromCamelCaseToProperCssTerm(tacssProp as keyof CSSProperties);
-        string += convertedProp + ":" + value + ";";
-    }
-    string += '}'
-    return string;
-}
-
-function convertFromCamelCaseToProperCssTerm(cssProp: keyof CSSProperties) {
-    let convertedProp = '';
-    for (let i = 0; i < cssProp.length; i++) {
-        const char = cssProp[i];
-        const lowerCase = char.toLowerCase();
-        const isLowercase = char === lowerCase;
-        if (isLowercase) convertedProp += char
-        else convertedProp += ("-" + lowerCase)
-    }
-    return convertedProp
-}
-
-
-function standardizedNumberValues(prop: keyof CSSProperties, value: number) {
-    const pixelNumberProps: { [Property in keyof CSSProperties]?: boolean } = {
-        fontSize: true,
-        "font-size": true,
-        height: true,
-        width: true,
-        gap: true,
-
-        margin: true,
-        marginTop: true,
-        "margin-top": true,
-        marginBottom: true,
-        "margin-bottom": true,
-        marginLeft: true,
-        "margin-left": true,
-        marginRight: true,
-        "margin-right": true,
-
-        padding: true,
-        paddingTop: true,
-        "padding-top": true,
-        paddingBottom: true,
-        "padding-bottom": true,
-        paddingLeft: true,
-        "padding-left": true,
-        paddingRight: true,
-        "padding-right": true,
-
-    }
-
-    if (pixelNumberProps[prop]) return `${value}px`
-    else return value;
-}
-
 
 export function buildCssStringForSelector(selector: string, tacssProperties: TacssProperties) {
     const cssProperties: CSSProperties = {};
@@ -248,6 +186,69 @@ export function buildCssStringForSelector(selector: string, tacssProperties: Tac
 
     return string;
 }
+
+
+export function convertCssPropertiesToString(cssProperties: CSSProperties) {
+
+    let string = '{';
+    for (const prop in cssProperties) {
+        const tacssProp = prop as keyof CSSProperties
+        let value = cssProperties[tacssProp];
+        if (typeof value === "number") value = standardizeNumberValues(prop as keyof CSSProperties, value);
+
+        const convertedProp = convertFromCamelCaseToProperCssTerm(tacssProp as keyof CSSProperties);
+        string += convertedProp + ":" + value + ";";
+    }
+    string += '}'
+    return string;
+}
+
+function convertFromCamelCaseToProperCssTerm(cssProp: keyof CSSProperties) {
+    let convertedProp = '';
+    for (let i = 0; i < cssProp.length; i++) {
+        const char = cssProp[i];
+        const lowerCase = char.toLowerCase();
+        const isLowercase = char === lowerCase;
+        if (isLowercase) convertedProp += char
+        else convertedProp += ("-" + lowerCase)
+    }
+    return convertedProp
+}
+
+function standardizeNumberValues(prop: keyof CSSProperties, value: number) {
+    const pixelNumberProps: { [Property in keyof CSSProperties]?: boolean } = {
+        fontSize: true,
+        "font-size": true,
+        height: true,
+        width: true,
+        gap: true,
+
+        margin: true,
+        marginTop: true,
+        "margin-top": true,
+        marginBottom: true,
+        "margin-bottom": true,
+        marginLeft: true,
+        "margin-left": true,
+        marginRight: true,
+        "margin-right": true,
+
+        padding: true,
+        paddingTop: true,
+        "padding-top": true,
+        paddingBottom: true,
+        "padding-bottom": true,
+        paddingLeft: true,
+        "padding-left": true,
+        paddingRight: true,
+        "padding-right": true,
+
+    }
+
+    if (pixelNumberProps[prop]) return `${value}px`
+    else return value;
+}
+
 
 
 

@@ -1,4 +1,4 @@
-export { };
+export {};
 
 export type PropertyValue<TValue> = TValue extends Array<infer AValue>
     ? Array<AValue extends infer TUnpacked & {} ? TUnpacked : AValue>
@@ -5808,7 +5808,7 @@ export interface StandardShorthandProperties<TLength = (string & {}) | 0, TTime 
 
 export interface StandardProperties<TLength = (string & {}) | 0, TTime = string & {}>
     extends StandardLonghandProperties<TLength, TTime>,
-    StandardShorthandProperties<TLength, TTime> { }
+        StandardShorthandProperties<TLength, TTime> {}
 
 export interface VendorLonghandProperties<TLength = (string & {}) | 0, TTime = string & {}> {
     /**
@@ -7774,7 +7774,9 @@ export interface VendorShorthandProperties<TLength = (string & {}) | 0, TTime = 
     WebkitTransition?: Property.Transition<TTime> | undefined;
 }
 
-export interface VendorProperties<TLength = (string & {}) | 0, TTime = string & {}> extends VendorLonghandProperties<TLength, TTime>, VendorShorthandProperties<TLength, TTime> { }
+export interface VendorProperties<TLength = (string & {}) | 0, TTime = string & {}>
+    extends VendorLonghandProperties<TLength, TTime>,
+        VendorShorthandProperties<TLength, TTime> {}
 
 export interface ObsoleteProperties<TLength = (string & {}) | 0, TTime = string & {}> {
     /**
@@ -8890,11 +8892,11 @@ export interface SvgProperties<TLength = (string & {}) | 0, TTime = string & {}>
 
 export interface Properties<TLength = (string & {}) | 0, TTime = string & {}>
     extends StandardProperties<TLength, TTime>,
-    VendorProperties<TLength, TTime>,
-    ObsoleteProperties<TLength, TTime>,
-    StandardLonghandPropertiesHyphen<TLength, TTime>,
-    VendorLonghandPropertiesHyphen<TLength, TTime>,
-    SvgProperties<TLength, TTime> { }
+        VendorProperties<TLength, TTime>,
+        ObsoleteProperties<TLength, TTime>,
+        StandardLonghandPropertiesHyphen<TLength, TTime>,
+        VendorLonghandPropertiesHyphen<TLength, TTime>,
+        SvgProperties<TLength, TTime> {}
 
 export interface StandardLonghandPropertiesHyphen<TLength = (string & {}) | 0, TTime = string & {}> {
     /**
@@ -14696,7 +14698,7 @@ export interface StandardShorthandPropertiesHyphen<TLength = (string & {}) | 0, 
 
 export interface StandardPropertiesHyphen<TLength = (string & {}) | 0, TTime = string & {}>
     extends StandardLonghandPropertiesHyphen<TLength, TTime>,
-    StandardShorthandPropertiesHyphen<TLength, TTime> { }
+        StandardShorthandPropertiesHyphen<TLength, TTime> {}
 
 export interface VendorLonghandPropertiesHyphen<TLength = (string & {}) | 0, TTime = string & {}> {
     /**
@@ -16664,7 +16666,7 @@ export interface VendorShorthandPropertiesHyphen<TLength = (string & {}) | 0, TT
 
 export interface VendorPropertiesHyphen<TLength = (string & {}) | 0, TTime = string & {}>
     extends VendorLonghandPropertiesHyphen<TLength, TTime>,
-    VendorShorthandPropertiesHyphen<TLength, TTime> { }
+        VendorShorthandPropertiesHyphen<TLength, TTime> {}
 
 export interface ObsoletePropertiesHyphen<TLength = (string & {}) | 0, TTime = string & {}> {
     /**
@@ -17780,61 +17782,85 @@ export interface SvgPropertiesHyphen<TLength = (string & {}) | 0, TTime = string
 
 export interface PropertiesHyphen<TLength = (string & {}) | 0, TTime = string & {}>
     extends StandardPropertiesHyphen<TLength, TTime>,
-    VendorPropertiesHyphen<TLength, TTime>,
-    ObsoletePropertiesHyphen<TLength, TTime>,
-    SvgPropertiesHyphen<TLength, TTime> { }
+        VendorPropertiesHyphen<TLength, TTime>,
+        ObsoletePropertiesHyphen<TLength, TTime>,
+        SvgPropertiesHyphen<TLength, TTime> {}
 
-export type StandardLonghandPropertiesFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<StandardLonghandProperties<TLength, TTime>>;
+export type StandardLonghandPropertiesFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+    StandardLonghandProperties<TLength, TTime>
+>;
 
-export type StandardShorthandPropertiesFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<StandardShorthandProperties<TLength, TTime>>;
+export type StandardShorthandPropertiesFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+    StandardShorthandProperties<TLength, TTime>
+>;
 
 export interface StandardPropertiesFallback<TLength = (string & {}) | 0, TTime = string & {}>
     extends StandardLonghandPropertiesFallback<TLength, TTime>,
-    StandardShorthandPropertiesFallback<TLength, TTime> { }
+        StandardShorthandPropertiesFallback<TLength, TTime> {}
 
-export type VendorLonghandPropertiesFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<VendorLonghandProperties<TLength, TTime>>;
+export type VendorLonghandPropertiesFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+    VendorLonghandProperties<TLength, TTime>
+>;
 
-export type VendorShorthandPropertiesFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<VendorShorthandProperties<TLength, TTime>>;
+export type VendorShorthandPropertiesFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+    VendorShorthandProperties<TLength, TTime>
+>;
 
 export interface VendorPropertiesFallback<TLength = (string & {}) | 0, TTime = string & {}>
     extends VendorLonghandPropertiesFallback<TLength, TTime>,
-    VendorShorthandPropertiesFallback<TLength, TTime> { }
+        VendorShorthandPropertiesFallback<TLength, TTime> {}
 
-export type ObsoletePropertiesFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<ObsoleteProperties<TLength, TTime>>;
+export type ObsoletePropertiesFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+    ObsoleteProperties<TLength, TTime>
+>;
 
-export type SvgPropertiesFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<SvgProperties<TLength, TTime>>;
+export type SvgPropertiesFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+    SvgProperties<TLength, TTime>
+>;
 
 export interface PropertiesFallback<TLength = (string & {}) | 0, TTime = string & {}>
     extends StandardPropertiesFallback<TLength, TTime>,
-    VendorPropertiesFallback<TLength, TTime>,
-    ObsoletePropertiesFallback<TLength, TTime>,
-    SvgPropertiesFallback<TLength, TTime> { }
+        VendorPropertiesFallback<TLength, TTime>,
+        ObsoletePropertiesFallback<TLength, TTime>,
+        SvgPropertiesFallback<TLength, TTime> {}
 
-export type StandardLonghandPropertiesHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<StandardLonghandPropertiesHyphen<TLength, TTime>>;
+export type StandardLonghandPropertiesHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+    StandardLonghandPropertiesHyphen<TLength, TTime>
+>;
 
-export type StandardShorthandPropertiesHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<StandardShorthandPropertiesHyphen<TLength, TTime>>;
+export type StandardShorthandPropertiesHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+    StandardShorthandPropertiesHyphen<TLength, TTime>
+>;
 
 export interface StandardPropertiesHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}>
     extends StandardLonghandPropertiesHyphenFallback<TLength, TTime>,
-    StandardShorthandPropertiesHyphenFallback<TLength, TTime> { }
+        StandardShorthandPropertiesHyphenFallback<TLength, TTime> {}
 
-export type VendorLonghandPropertiesHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<VendorLonghandPropertiesHyphen<TLength, TTime>>;
+export type VendorLonghandPropertiesHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+    VendorLonghandPropertiesHyphen<TLength, TTime>
+>;
 
-export type VendorShorthandPropertiesHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<VendorShorthandPropertiesHyphen<TLength, TTime>>;
+export type VendorShorthandPropertiesHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+    VendorShorthandPropertiesHyphen<TLength, TTime>
+>;
 
 export interface VendorPropertiesHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}>
     extends VendorLonghandPropertiesHyphenFallback<TLength, TTime>,
-    VendorShorthandPropertiesHyphenFallback<TLength, TTime> { }
+        VendorShorthandPropertiesHyphenFallback<TLength, TTime> {}
 
-export type ObsoletePropertiesHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<ObsoletePropertiesHyphen<TLength, TTime>>;
+export type ObsoletePropertiesHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+    ObsoletePropertiesHyphen<TLength, TTime>
+>;
 
-export type SvgPropertiesHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<SvgPropertiesHyphen<TLength, TTime>>;
+export type SvgPropertiesHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+    SvgPropertiesHyphen<TLength, TTime>
+>;
 
 export interface PropertiesHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}>
     extends StandardPropertiesHyphenFallback<TLength, TTime>,
-    VendorPropertiesHyphenFallback<TLength, TTime>,
-    ObsoletePropertiesHyphenFallback<TLength, TTime>,
-    SvgPropertiesHyphenFallback<TLength, TTime> { }
+        VendorPropertiesHyphenFallback<TLength, TTime>,
+        ObsoletePropertiesHyphenFallback<TLength, TTime>,
+        SvgPropertiesHyphenFallback<TLength, TTime> {}
 
 export type AtRules =
     | "@charset"
@@ -18439,13 +18465,32 @@ export type Globals = "-moz-initial" | "inherit" | "initial" | "revert" | "rever
 export namespace Property {
     export type AccentColor = Globals | DataType.Color | "auto";
 
-    export type AlignContent = Globals | DataType.ContentDistribution | DataType.ContentPosition | "baseline" | "normal" | (string & {});
+    export type AlignContent =
+        | Globals
+        | DataType.ContentDistribution
+        | DataType.ContentPosition
+        | "baseline"
+        | "normal"
+        | (string & {});
 
     export type AlignItems = Globals | DataType.SelfPosition | "baseline" | "normal" | "stretch" | (string & {});
 
-    export type AlignSelf = Globals | DataType.SelfPosition | "auto" | "baseline" | "normal" | "stretch" | (string & {});
+    export type AlignSelf =
+        | Globals
+        | DataType.SelfPosition
+        | "auto"
+        | "baseline"
+        | "normal"
+        | "stretch"
+        | (string & {});
 
-    export type AlignTracks = Globals | DataType.ContentDistribution | DataType.ContentPosition | "baseline" | "normal" | (string & {});
+    export type AlignTracks =
+        | Globals
+        | DataType.ContentDistribution
+        | DataType.ContentPosition
+        | "baseline"
+        | "normal"
+        | (string & {});
 
     export type All = Globals;
 
@@ -18507,11 +18552,30 @@ export namespace Property {
 
     export type BackgroundOrigin = Globals | DataType.Box | (string & {});
 
-    export type BackgroundPosition<TLength = (string & {}) | 0> = Globals | DataType.BgPosition<TLength> | (string & {});
+    export type BackgroundPosition<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.BgPosition<TLength>
+        | (string & {});
 
-    export type BackgroundPositionX<TLength = (string & {}) | 0> = Globals | TLength | "center" | "left" | "right" | "x-end" | "x-start" | (string & {});
+    export type BackgroundPositionX<TLength = (string & {}) | 0> =
+        | Globals
+        | TLength
+        | "center"
+        | "left"
+        | "right"
+        | "x-end"
+        | "x-start"
+        | (string & {});
 
-    export type BackgroundPositionY<TLength = (string & {}) | 0> = Globals | TLength | "bottom" | "center" | "top" | "y-end" | "y-start" | (string & {});
+    export type BackgroundPositionY<TLength = (string & {}) | 0> =
+        | Globals
+        | TLength
+        | "bottom"
+        | "center"
+        | "top"
+        | "y-end"
+        | "y-start"
+        | (string & {});
 
     export type BackgroundRepeat = Globals | DataType.RepeatStyle | (string & {});
 
@@ -18532,13 +18596,28 @@ export namespace Property {
         | "min-content"
         | (string & {});
 
-    export type Border<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+    export type Border<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.LineWidth<TLength>
+        | DataType.LineStyle
+        | DataType.Color
+        | (string & {});
 
-    export type BorderBlock<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+    export type BorderBlock<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.LineWidth<TLength>
+        | DataType.LineStyle
+        | DataType.Color
+        | (string & {});
 
     export type BorderBlockColor = Globals | DataType.Color | (string & {});
 
-    export type BorderBlockEnd<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+    export type BorderBlockEnd<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.LineWidth<TLength>
+        | DataType.LineStyle
+        | DataType.Color
+        | (string & {});
 
     export type BorderBlockEndColor = Globals | DataType.Color;
 
@@ -18546,7 +18625,12 @@ export namespace Property {
 
     export type BorderBlockEndWidth<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength>;
 
-    export type BorderBlockStart<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+    export type BorderBlockStart<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.LineWidth<TLength>
+        | DataType.LineStyle
+        | DataType.Color
+        | (string & {});
 
     export type BorderBlockStartColor = Globals | DataType.Color;
 
@@ -18558,7 +18642,12 @@ export namespace Property {
 
     export type BorderBlockWidth<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength>;
 
-    export type BorderBottom<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+    export type BorderBottom<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.LineWidth<TLength>
+        | DataType.LineStyle
+        | DataType.Color
+        | (string & {});
 
     export type BorderBottomColor = Globals | DataType.Color;
 
@@ -18578,7 +18667,15 @@ export namespace Property {
 
     export type BorderEndStartRadius<TLength = (string & {}) | 0> = Globals | TLength | (string & {});
 
-    export type BorderImage = Globals | "none" | "repeat" | "round" | "space" | "stretch" | (string & {}) | (number & {});
+    export type BorderImage =
+        | Globals
+        | "none"
+        | "repeat"
+        | "round"
+        | "space"
+        | "stretch"
+        | (string & {})
+        | (number & {});
 
     export type BorderImageOutset<TLength = (string & {}) | 0> = Globals | TLength | (string & {}) | (number & {});
 
@@ -18588,13 +18685,28 @@ export namespace Property {
 
     export type BorderImageSource = Globals | "none" | (string & {});
 
-    export type BorderImageWidth<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {}) | (number & {});
+    export type BorderImageWidth<TLength = (string & {}) | 0> =
+        | Globals
+        | TLength
+        | "auto"
+        | (string & {})
+        | (number & {});
 
-    export type BorderInline<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+    export type BorderInline<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.LineWidth<TLength>
+        | DataType.LineStyle
+        | DataType.Color
+        | (string & {});
 
     export type BorderInlineColor = Globals | DataType.Color | (string & {});
 
-    export type BorderInlineEnd<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+    export type BorderInlineEnd<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.LineWidth<TLength>
+        | DataType.LineStyle
+        | DataType.Color
+        | (string & {});
 
     export type BorderInlineEndColor = Globals | DataType.Color;
 
@@ -18602,7 +18714,12 @@ export namespace Property {
 
     export type BorderInlineEndWidth<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength>;
 
-    export type BorderInlineStart<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+    export type BorderInlineStart<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.LineWidth<TLength>
+        | DataType.LineStyle
+        | DataType.Color
+        | (string & {});
 
     export type BorderInlineStartColor = Globals | DataType.Color;
 
@@ -18614,7 +18731,12 @@ export namespace Property {
 
     export type BorderInlineWidth<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength>;
 
-    export type BorderLeft<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+    export type BorderLeft<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.LineWidth<TLength>
+        | DataType.LineStyle
+        | DataType.Color
+        | (string & {});
 
     export type BorderLeftColor = Globals | DataType.Color;
 
@@ -18624,7 +18746,12 @@ export namespace Property {
 
     export type BorderRadius<TLength = (string & {}) | 0> = Globals | TLength | (string & {});
 
-    export type BorderRight<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+    export type BorderRight<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.LineWidth<TLength>
+        | DataType.LineStyle
+        | DataType.Color
+        | (string & {});
 
     export type BorderRightColor = Globals | DataType.Color;
 
@@ -18640,7 +18767,12 @@ export namespace Property {
 
     export type BorderStyle = Globals | DataType.LineStyle | (string & {});
 
-    export type BorderTop<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+    export type BorderTop<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.LineWidth<TLength>
+        | DataType.LineStyle
+        | DataType.Color
+        | (string & {});
 
     export type BorderTopColor = Globals | DataType.Color;
 
@@ -18736,7 +18868,12 @@ export namespace Property {
 
     export type ColumnGap<TLength = (string & {}) | 0> = Globals | TLength | "normal" | (string & {});
 
-    export type ColumnRule<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+    export type ColumnRule<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.LineWidth<TLength>
+        | DataType.LineStyle
+        | DataType.Color
+        | (string & {});
 
     export type ColumnRuleColor = Globals | DataType.Color;
 
@@ -18750,7 +18887,16 @@ export namespace Property {
 
     export type Columns<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {}) | (number & {});
 
-    export type Contain = Globals | "content" | "layout" | "none" | "paint" | "size" | "strict" | "style" | (string & {});
+    export type Contain =
+        | Globals
+        | "content"
+        | "layout"
+        | "none"
+        | "paint"
+        | "size"
+        | "strict"
+        | "style"
+        | (string & {});
 
     export type Content = Globals | DataType.ContentList | "none" | "normal" | (string & {});
 
@@ -18821,7 +18967,17 @@ export namespace Property {
 
     export type Filter = Globals | "none" | (string & {});
 
-    export type Flex<TLength = (string & {}) | 0> = Globals | TLength | "auto" | "content" | "fit-content" | "max-content" | "min-content" | "none" | (string & {}) | (number & {});
+    export type Flex<TLength = (string & {}) | 0> =
+        | Globals
+        | TLength
+        | "auto"
+        | "content"
+        | "fit-content"
+        | "max-content"
+        | "min-content"
+        | "none"
+        | (string & {})
+        | (number & {});
 
     export type FlexBasis<TLength = (string & {}) | 0> =
         | Globals
@@ -18839,7 +18995,16 @@ export namespace Property {
 
     export type FlexDirection = Globals | "column" | "column-reverse" | "row" | "row-reverse";
 
-    export type FlexFlow = Globals | "column" | "column-reverse" | "nowrap" | "row" | "row-reverse" | "wrap" | "wrap-reverse" | (string & {});
+    export type FlexFlow =
+        | Globals
+        | "column"
+        | "column-reverse"
+        | "nowrap"
+        | "row"
+        | "row-reverse"
+        | "wrap"
+        | "wrap-reverse"
+        | (string & {});
 
     export type FlexGrow = Globals | (number & {}) | (string & {});
 
@@ -18849,7 +19014,15 @@ export namespace Property {
 
     export type Float = Globals | "inline-end" | "inline-start" | "left" | "none" | "right";
 
-    export type Font = Globals | "caption" | "icon" | "menu" | "message-box" | "small-caption" | "status-bar" | (string & {});
+    export type Font =
+        | Globals
+        | "caption"
+        | "icon"
+        | "menu"
+        | "message-box"
+        | "small-caption"
+        | "status-bar"
+        | (string & {});
 
     export type FontFamily = Globals | DataType.GenericFamily | (string & {});
 
@@ -18861,11 +19034,23 @@ export namespace Property {
 
     export type FontOpticalSizing = Globals | "auto" | "none";
 
-    export type FontSize<TLength = (string & {}) | 0> = Globals | DataType.AbsoluteSize | TLength | "larger" | "smaller" | (string & {});
+    export type FontSize<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.AbsoluteSize
+        | TLength
+        | "larger"
+        | "smaller"
+        | (string & {});
 
     export type FontSizeAdjust = Globals | "from-font" | "none" | (string & {}) | (number & {});
 
-    export type FontSmooth<TLength = (string & {}) | 0> = Globals | DataType.AbsoluteSize | TLength | "always" | "auto" | "never";
+    export type FontSmooth<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.AbsoluteSize
+        | TLength
+        | "always"
+        | "auto"
+        | "never";
 
     export type FontStretch = Globals | DataType.FontStretchAbsolute;
 
@@ -18908,9 +19093,24 @@ export namespace Property {
 
     export type FontVariantAlternates = Globals | "historical-forms" | "normal" | (string & {});
 
-    export type FontVariantCaps = Globals | "all-petite-caps" | "all-small-caps" | "normal" | "petite-caps" | "small-caps" | "titling-caps" | "unicase";
+    export type FontVariantCaps =
+        | Globals
+        | "all-petite-caps"
+        | "all-small-caps"
+        | "normal"
+        | "petite-caps"
+        | "small-caps"
+        | "titling-caps"
+        | "unicase";
 
-    export type FontVariantEastAsian = Globals | DataType.EastAsianVariantValues | "full-width" | "normal" | "proportional-width" | "ruby" | (string & {});
+    export type FontVariantEastAsian =
+        | Globals
+        | DataType.EastAsianVariantValues
+        | "full-width"
+        | "normal"
+        | "proportional-width"
+        | "ruby"
+        | (string & {});
 
     export type FontVariantLigatures =
         | Globals
@@ -18981,9 +19181,19 @@ export namespace Property {
 
     export type GridTemplateAreas = Globals | "none" | (string & {});
 
-    export type GridTemplateColumns<TLength = (string & {}) | 0> = Globals | DataType.TrackBreadth<TLength> | "none" | "subgrid" | (string & {});
+    export type GridTemplateColumns<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.TrackBreadth<TLength>
+        | "none"
+        | "subgrid"
+        | (string & {});
 
-    export type GridTemplateRows<TLength = (string & {}) | 0> = Globals | DataType.TrackBreadth<TLength> | "none" | "subgrid" | (string & {});
+    export type GridTemplateRows<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.TrackBreadth<TLength>
+        | "none"
+        | "subgrid"
+        | (string & {});
 
     export type HangingPunctuation = Globals | "allow-end" | "first" | "force-end" | "last" | "none" | (string & {});
 
@@ -19005,7 +19215,13 @@ export namespace Property {
 
     export type ImageOrientation = Globals | "flip" | "from-image" | (string & {});
 
-    export type ImageRendering = Globals | "-moz-crisp-edges" | "-webkit-optimize-contrast" | "auto" | "crisp-edges" | "pixelated";
+    export type ImageRendering =
+        | Globals
+        | "-moz-crisp-edges"
+        | "-webkit-optimize-contrast"
+        | "auto"
+        | "crisp-edges"
+        | "pixelated";
 
     export type ImageResolution = Globals | "from-image" | (string & {});
 
@@ -19044,13 +19260,45 @@ export namespace Property {
 
     export type Isolation = Globals | "auto" | "isolate";
 
-    export type JustifyContent = Globals | DataType.ContentDistribution | DataType.ContentPosition | "left" | "normal" | "right" | (string & {});
+    export type JustifyContent =
+        | Globals
+        | DataType.ContentDistribution
+        | DataType.ContentPosition
+        | "left"
+        | "normal"
+        | "right"
+        | (string & {});
 
-    export type JustifyItems = Globals | DataType.SelfPosition | "baseline" | "left" | "legacy" | "normal" | "right" | "stretch" | (string & {});
+    export type JustifyItems =
+        | Globals
+        | DataType.SelfPosition
+        | "baseline"
+        | "left"
+        | "legacy"
+        | "normal"
+        | "right"
+        | "stretch"
+        | (string & {});
 
-    export type JustifySelf = Globals | DataType.SelfPosition | "auto" | "baseline" | "left" | "normal" | "right" | "stretch" | (string & {});
+    export type JustifySelf =
+        | Globals
+        | DataType.SelfPosition
+        | "auto"
+        | "baseline"
+        | "left"
+        | "normal"
+        | "right"
+        | "stretch"
+        | (string & {});
 
-    export type JustifyTracks = Globals | DataType.ContentDistribution | DataType.ContentPosition | "left" | "normal" | "right" | (string & {});
+    export type JustifyTracks =
+        | Globals
+        | DataType.ContentDistribution
+        | DataType.ContentPosition
+        | "left"
+        | "normal"
+        | "right"
+        | (string & {});
 
     export type Left<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {});
 
@@ -19096,7 +19344,17 @@ export namespace Property {
 
     export type Mask<TLength = (string & {}) | 0> = Globals | DataType.MaskLayer<TLength> | (string & {});
 
-    export type MaskBorder = Globals | "alpha" | "luminance" | "none" | "repeat" | "round" | "space" | "stretch" | (string & {}) | (number & {});
+    export type MaskBorder =
+        | Globals
+        | "alpha"
+        | "luminance"
+        | "none"
+        | "repeat"
+        | "round"
+        | "space"
+        | "stretch"
+        | (string & {})
+        | (number & {});
 
     export type MaskBorderMode = Globals | "alpha" | "luminance";
 
@@ -19108,7 +19366,12 @@ export namespace Property {
 
     export type MaskBorderSource = Globals | "none" | (string & {});
 
-    export type MaskBorderWidth<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {}) | (number & {});
+    export type MaskBorderWidth<TLength = (string & {}) | 0> =
+        | Globals
+        | TLength
+        | "auto"
+        | (string & {})
+        | (number & {});
 
     export type MaskClip = Globals | DataType.GeometryBox | "no-clip" | (string & {});
 
@@ -19250,7 +19513,13 @@ export namespace Property {
 
     export type MixBlendMode = Globals | DataType.BlendMode | "plus-lighter";
 
-    export type Offset<TLength = (string & {}) | 0> = Globals | DataType.Position<TLength> | DataType.GeometryBox | "auto" | "none" | (string & {});
+    export type Offset<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.Position<TLength>
+        | DataType.GeometryBox
+        | "auto"
+        | "none"
+        | (string & {});
 
     export type OffsetDistance<TLength = (string & {}) | 0> = Globals | TLength | (string & {});
 
@@ -19270,7 +19539,14 @@ export namespace Property {
 
     export type Orphans = Globals | (number & {}) | (string & {});
 
-    export type Outline<TLength = (string & {}) | 0> = Globals | DataType.Color | DataType.LineStyle | DataType.LineWidth<TLength> | "auto" | "invert" | (string & {});
+    export type Outline<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.Color
+        | DataType.LineStyle
+        | DataType.LineWidth<TLength>
+        | "auto"
+        | "invert"
+        | (string & {});
 
     export type OutlineColor = Globals | DataType.Color | "invert";
 
@@ -19280,7 +19556,15 @@ export namespace Property {
 
     export type OutlineWidth<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength>;
 
-    export type Overflow = Globals | "-moz-hidden-unscrollable" | "auto" | "clip" | "hidden" | "scroll" | "visible" | (string & {});
+    export type Overflow =
+        | Globals
+        | "-moz-hidden-unscrollable"
+        | "auto"
+        | "clip"
+        | "hidden"
+        | "scroll"
+        | "visible"
+        | (string & {});
 
     export type OverflowAnchor = Globals | "auto" | "none";
 
@@ -19288,7 +19572,11 @@ export namespace Property {
 
     export type OverflowClipBox = Globals | "content-box" | "padding-box";
 
-    export type OverflowClipMargin<TLength = (string & {}) | 0> = Globals | DataType.VisualBox | TLength | (string & {});
+    export type OverflowClipMargin<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.VisualBox
+        | TLength
+        | (string & {});
 
     export type OverflowInline = Globals | "auto" | "clip" | "hidden" | "scroll" | "visible";
 
@@ -19342,13 +19630,38 @@ export namespace Property {
 
     export type PerspectiveOrigin<TLength = (string & {}) | 0> = Globals | DataType.Position<TLength>;
 
-    export type PlaceContent = Globals | DataType.ContentDistribution | DataType.ContentPosition | "baseline" | "normal" | (string & {});
+    export type PlaceContent =
+        | Globals
+        | DataType.ContentDistribution
+        | DataType.ContentPosition
+        | "baseline"
+        | "normal"
+        | (string & {});
 
     export type PlaceItems = Globals | DataType.SelfPosition | "baseline" | "normal" | "stretch" | (string & {});
 
-    export type PlaceSelf = Globals | DataType.SelfPosition | "auto" | "baseline" | "normal" | "stretch" | (string & {});
+    export type PlaceSelf =
+        | Globals
+        | DataType.SelfPosition
+        | "auto"
+        | "baseline"
+        | "normal"
+        | "stretch"
+        | (string & {});
 
-    export type PointerEvents = Globals | "all" | "auto" | "fill" | "inherit" | "none" | "painted" | "stroke" | "visible" | "visibleFill" | "visiblePainted" | "visibleStroke";
+    export type PointerEvents =
+        | Globals
+        | "all"
+        | "auto"
+        | "fill"
+        | "inherit"
+        | "none"
+        | "painted"
+        | "stroke"
+        | "visible"
+        | "visibleFill"
+        | "visiblePainted"
+        | "visibleStroke";
 
     export type Position = Globals | "-webkit-sticky" | "absolute" | "fixed" | "relative" | "static" | "sticky";
 
@@ -19418,7 +19731,11 @@ export namespace Property {
 
     export type ScrollSnapAlign = Globals | "center" | "end" | "none" | "start" | (string & {});
 
-    export type ScrollSnapCoordinate<TLength = (string & {}) | 0> = Globals | DataType.Position<TLength> | "none" | (string & {});
+    export type ScrollSnapCoordinate<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.Position<TLength>
+        | "none"
+        | (string & {});
 
     export type ScrollSnapDestination<TLength = (string & {}) | 0> = Globals | DataType.Position<TLength>;
 
@@ -19480,23 +19797,67 @@ export namespace Property {
 
     export type TextDecorationColor = Globals | DataType.Color;
 
-    export type TextDecorationLine = Globals | "blink" | "grammar-error" | "line-through" | "none" | "overline" | "spelling-error" | "underline" | (string & {});
+    export type TextDecorationLine =
+        | Globals
+        | "blink"
+        | "grammar-error"
+        | "line-through"
+        | "none"
+        | "overline"
+        | "spelling-error"
+        | "underline"
+        | (string & {});
 
-    export type TextDecorationSkip = Globals | "box-decoration" | "edges" | "leading-spaces" | "none" | "objects" | "spaces" | "trailing-spaces" | (string & {});
+    export type TextDecorationSkip =
+        | Globals
+        | "box-decoration"
+        | "edges"
+        | "leading-spaces"
+        | "none"
+        | "objects"
+        | "spaces"
+        | "trailing-spaces"
+        | (string & {});
 
     export type TextDecorationSkipInk = Globals | "all" | "auto" | "none";
 
     export type TextDecorationStyle = Globals | "dashed" | "dotted" | "double" | "solid" | "wavy";
 
-    export type TextDecorationThickness<TLength = (string & {}) | 0> = Globals | TLength | "auto" | "from-font" | (string & {});
+    export type TextDecorationThickness<TLength = (string & {}) | 0> =
+        | Globals
+        | TLength
+        | "auto"
+        | "from-font"
+        | (string & {});
 
-    export type TextEmphasis = Globals | DataType.Color | "circle" | "dot" | "double-circle" | "filled" | "none" | "open" | "sesame" | "triangle" | (string & {});
+    export type TextEmphasis =
+        | Globals
+        | DataType.Color
+        | "circle"
+        | "dot"
+        | "double-circle"
+        | "filled"
+        | "none"
+        | "open"
+        | "sesame"
+        | "triangle"
+        | (string & {});
 
     export type TextEmphasisColor = Globals | DataType.Color;
 
     export type TextEmphasisPosition = Globals | (string & {});
 
-    export type TextEmphasisStyle = Globals | "circle" | "dot" | "double-circle" | "filled" | "none" | "open" | "sesame" | "triangle" | (string & {});
+    export type TextEmphasisStyle =
+        | Globals
+        | "circle"
+        | "dot"
+        | "double-circle"
+        | "filled"
+        | "none"
+        | "open"
+        | "sesame"
+        | "triangle"
+        | (string & {});
 
     export type TextIndent<TLength = (string & {}) | 0> = Globals | TLength | (string & {});
 
@@ -19512,7 +19873,14 @@ export namespace Property {
 
     export type TextSizeAdjust = Globals | "auto" | "none" | (string & {});
 
-    export type TextTransform = Globals | "capitalize" | "full-size-kana" | "full-width" | "lowercase" | "none" | "uppercase";
+    export type TextTransform =
+        | Globals
+        | "capitalize"
+        | "full-size-kana"
+        | "full-width"
+        | "lowercase"
+        | "none"
+        | "uppercase";
 
     export type TextUnderlineOffset<TLength = (string & {}) | 0> = Globals | TLength | "auto" | (string & {});
 
@@ -19541,7 +19909,15 @@ export namespace Property {
 
     export type TransformBox = Globals | "border-box" | "content-box" | "fill-box" | "stroke-box" | "view-box";
 
-    export type TransformOrigin<TLength = (string & {}) | 0> = Globals | TLength | "bottom" | "center" | "left" | "right" | "top" | (string & {});
+    export type TransformOrigin<TLength = (string & {}) | 0> =
+        | Globals
+        | TLength
+        | "bottom"
+        | "center"
+        | "left"
+        | "right"
+        | "top"
+        | (string & {});
 
     export type TransformStyle = Globals | "flat" | "preserve-3d";
 
@@ -19589,7 +19965,15 @@ export namespace Property {
 
     export type Visibility = Globals | "collapse" | "hidden" | "visible";
 
-    export type WhiteSpace = Globals | "-moz-pre-wrap" | "break-spaces" | "normal" | "nowrap" | "pre" | "pre-line" | "pre-wrap";
+    export type WhiteSpace =
+        | Globals
+        | "-moz-pre-wrap"
+        | "break-spaces"
+        | "normal"
+        | "nowrap"
+        | "pre"
+        | "pre-line"
+        | "pre-wrap";
 
     export type Widows = Globals | (number & {}) | (string & {});
 
@@ -19746,7 +20130,14 @@ export namespace Property {
 
     export type MozBorderTopColors = Globals | DataType.Color | "none" | (string & {});
 
-    export type MozContextProperties = Globals | "fill" | "fill-opacity" | "none" | "stroke" | "stroke-opacity" | (string & {});
+    export type MozContextProperties =
+        | Globals
+        | "fill"
+        | "fill-opacity"
+        | "none"
+        | "stroke"
+        | "stroke-opacity"
+        | (string & {});
 
     export type MozFloatEdge = Globals | "border-box" | "content-box" | "margin-box" | "padding-box";
 
@@ -19770,7 +20161,16 @@ export namespace Property {
 
     export type MozTextBlink = Globals | "blink" | "none";
 
-    export type MozUserFocus = Globals | "ignore" | "none" | "normal" | "select-after" | "select-all" | "select-before" | "select-menu" | "select-same";
+    export type MozUserFocus =
+        | Globals
+        | "ignore"
+        | "none"
+        | "normal"
+        | "select-after"
+        | "select-all"
+        | "select-before"
+        | "select-menu"
+        | "select-same";
 
     export type MozUserInput = Globals | "auto" | "disabled" | "enabled" | "none";
 
@@ -19806,9 +20206,17 @@ export namespace Property {
 
     export type MsFlowInto = Globals | "none" | (string & {});
 
-    export type MsGridColumns<TLength = (string & {}) | 0> = Globals | DataType.TrackBreadth<TLength> | "none" | (string & {});
+    export type MsGridColumns<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.TrackBreadth<TLength>
+        | "none"
+        | (string & {});
 
-    export type MsGridRows<TLength = (string & {}) | 0> = Globals | DataType.TrackBreadth<TLength> | "none" | (string & {});
+    export type MsGridRows<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.TrackBreadth<TLength>
+        | "none"
+        | (string & {});
 
     export type MsHighContrastAdjust = Globals | "auto" | "none";
 
@@ -19862,7 +20270,13 @@ export namespace Property {
 
     export type MsScrollbarShadowColor = Globals | DataType.Color;
 
-    export type MsTextAutospace = Globals | "ideograph-alpha" | "ideograph-numeric" | "ideograph-parenthesis" | "ideograph-space" | "none";
+    export type MsTextAutospace =
+        | Globals
+        | "ideograph-alpha"
+        | "ideograph-numeric"
+        | "ideograph-parenthesis"
+        | "ideograph-space"
+        | "none";
 
     export type MsTouchSelect = Globals | "grippers" | "none";
 
@@ -19926,15 +20340,30 @@ export namespace Property {
         | "textarea"
         | "textfield";
 
-    export type WebkitBorderBefore<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | DataType.LineStyle | DataType.Color | (string & {});
+    export type WebkitBorderBefore<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.LineWidth<TLength>
+        | DataType.LineStyle
+        | DataType.Color
+        | (string & {});
 
     export type WebkitBorderBeforeColor = Globals | DataType.Color;
 
     export type WebkitBorderBeforeStyle = Globals | DataType.LineStyle | (string & {});
 
-    export type WebkitBorderBeforeWidth<TLength = (string & {}) | 0> = Globals | DataType.LineWidth<TLength> | (string & {});
+    export type WebkitBorderBeforeWidth<TLength = (string & {}) | 0> =
+        | Globals
+        | DataType.LineWidth<TLength>
+        | (string & {});
 
-    export type WebkitBoxReflect<TLength = (string & {}) | 0> = Globals | TLength | "above" | "below" | "left" | "right" | (string & {});
+    export type WebkitBoxReflect<TLength = (string & {}) | 0> =
+        | Globals
+        | TLength
+        | "above"
+        | "below"
+        | "left"
+        | "right"
+        | (string & {});
 
     export type WebkitLineClamp = Globals | "none" | (number & {}) | (string & {});
 
@@ -19962,9 +20391,21 @@ export namespace Property {
 
     export type WebkitMaskPosition<TLength = (string & {}) | 0> = Globals | DataType.Position<TLength> | (string & {});
 
-    export type WebkitMaskPositionX<TLength = (string & {}) | 0> = Globals | TLength | "center" | "left" | "right" | (string & {});
+    export type WebkitMaskPositionX<TLength = (string & {}) | 0> =
+        | Globals
+        | TLength
+        | "center"
+        | "left"
+        | "right"
+        | (string & {});
 
-    export type WebkitMaskPositionY<TLength = (string & {}) | 0> = Globals | TLength | "bottom" | "center" | "top" | (string & {});
+    export type WebkitMaskPositionY<TLength = (string & {}) | 0> =
+        | Globals
+        | TLength
+        | "bottom"
+        | "center"
+        | "top"
+        | (string & {});
 
     export type WebkitMaskRepeat = Globals | DataType.RepeatStyle | (string & {});
 
@@ -20005,7 +20446,13 @@ export namespace Property {
         | "text-after-edge"
         | "text-before-edge";
 
-    export type BaselineShift<TLength = (string & {}) | 0> = Globals | TLength | "baseline" | "sub" | "super" | (string & {});
+    export type BaselineShift<TLength = (string & {}) | 0> =
+        | Globals
+        | TLength
+        | "baseline"
+        | "sub"
+        | "super"
+        | (string & {});
 
     export type ClipRule = Globals | "evenodd" | "nonzero";
 
@@ -20104,9 +20551,13 @@ export namespace AtRule {
         system?: System | undefined;
     }
 
-    export type CounterStyleFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<CounterStyle<TLength, TTime>>;
+    export type CounterStyleFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+        CounterStyle<TLength, TTime>
+    >;
 
-    export type CounterStyleHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<CounterStyleHyphen<TLength, TTime>>;
+    export type CounterStyleHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+        CounterStyleHyphen<TLength, TTime>
+    >;
 
     export interface FontFace<TLength = (string & {}) | 0, TTime = string & {}> {
         MozFontFeatureSettings?: FontFeatureSettings | undefined;
@@ -20146,7 +20597,9 @@ export namespace AtRule {
 
     export type FontFaceFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<FontFace<TLength, TTime>>;
 
-    export type FontFaceHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<FontFaceHyphen<TLength, TTime>>;
+    export type FontFaceHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+        FontFaceHyphen<TLength, TTime>
+    >;
 
     export interface Page<TLength = (string & {}) | 0, TTime = string & {}> {
         bleed?: Bleed<TLength> | undefined;
@@ -20162,7 +20615,9 @@ export namespace AtRule {
 
     export type PageFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<Page<TLength, TTime>>;
 
-    export type PageHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<PageHyphen<TLength, TTime>>;
+    export type PageHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+        PageHyphen<TLength, TTime>
+    >;
 
     export interface Property<TLength = (string & {}) | 0, TTime = string & {}> {
         inherits?: Inherits | undefined;
@@ -20178,7 +20633,9 @@ export namespace AtRule {
 
     export type PropertyFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<Property<TLength, TTime>>;
 
-    export type PropertyHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<PropertyHyphen<TLength, TTime>>;
+    export type PropertyHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+        PropertyHyphen<TLength, TTime>
+    >;
 
     export interface Viewport<TLength = (string & {}) | 0, TTime = string & {}> {
         height?: Height<TLength> | undefined;
@@ -20212,7 +20669,9 @@ export namespace AtRule {
 
     export type ViewportFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<Viewport<TLength, TTime>>;
 
-    export type ViewportHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<ViewportHyphen<TLength, TTime>>;
+    export type ViewportHyphenFallback<TLength = (string & {}) | 0, TTime = string & {}> = Fallback<
+        ViewportHyphen<TLength, TTime>
+    >;
 
     type Range = "auto" | (string & {});
 
@@ -20310,7 +20769,15 @@ export namespace AtRule {
  * update from `csstype` can break your typing if you're using the `DataType` namespace.
  */
 export namespace DataType {
-    export type AbsoluteSize = "large" | "medium" | "small" | "x-large" | "x-small" | "xx-large" | "xx-small" | "xxx-large";
+    export type AbsoluteSize =
+        | "large"
+        | "medium"
+        | "small"
+        | "x-large"
+        | "x-small"
+        | "xx-large"
+        | "xx-small"
+        | "xxx-large";
 
     export type AnimateableFeature = "contents" | "scroll-position" | (string & {});
 
@@ -20411,7 +20878,16 @@ export namespace DataType {
         | "WindowFrame"
         | "WindowText";
 
-    export type DisplayInside = "-ms-flexbox" | "-ms-grid" | "-webkit-flex" | "flex" | "flow" | "flow-root" | "grid" | "ruby" | "table";
+    export type DisplayInside =
+        | "-ms-flexbox"
+        | "-ms-grid"
+        | "-webkit-flex"
+        | "flex"
+        | "flow"
+        | "flow-root"
+        | "grid"
+        | "ruby"
+        | "table";
 
     export type DisplayInternal =
         | "ruby-base"
@@ -20427,7 +20903,15 @@ export namespace DataType {
         | "table-row"
         | "table-row-group";
 
-    export type DisplayLegacy = "-ms-inline-flexbox" | "-ms-inline-grid" | "-webkit-inline-flex" | "inline-block" | "inline-flex" | "inline-grid" | "inline-list-item" | "inline-table";
+    export type DisplayLegacy =
+        | "-ms-inline-flexbox"
+        | "-ms-inline-grid"
+        | "-webkit-inline-flex"
+        | "inline-block"
+        | "inline-flex"
+        | "inline-grid"
+        | "inline-list-item"
+        | "inline-table";
 
     export type DisplayOutside = "block" | "inline" | "run-in";
 
@@ -20435,7 +20919,14 @@ export namespace DataType {
 
     export type EastAsianVariantValues = "jis04" | "jis78" | "jis83" | "jis90" | "simplified" | "traditional";
 
-    export type FinalBgLayer<TLength> = Color | BgPosition<TLength> | RepeatStyle | Attachment | Box | "none" | (string & {});
+    export type FinalBgLayer<TLength> =
+        | Color
+        | BgPosition<TLength>
+        | RepeatStyle
+        | Attachment
+        | Box
+        | "none"
+        | (string & {});
 
     export type FontStretchAbsolute =
         | "condensed"
@@ -20457,11 +20948,29 @@ export namespace DataType {
 
     export type GridLine = "auto" | (string & {}) | (number & {});
 
-    export type LineStyle = "dashed" | "dotted" | "double" | "groove" | "hidden" | "inset" | "none" | "outset" | "ridge" | "solid";
+    export type LineStyle =
+        | "dashed"
+        | "dotted"
+        | "double"
+        | "groove"
+        | "hidden"
+        | "inset"
+        | "none"
+        | "outset"
+        | "ridge"
+        | "solid";
 
     export type LineWidth<TLength> = TLength | "medium" | "thick" | "thin";
 
-    export type MaskLayer<TLength> = Position<TLength> | RepeatStyle | GeometryBox | CompositingOperator | MaskingMode | "no-clip" | "none" | (string & {});
+    export type MaskLayer<TLength> =
+        | Position<TLength>
+        | RepeatStyle
+        | GeometryBox
+        | CompositingOperator
+        | MaskingMode
+        | "no-clip"
+        | "none"
+        | (string & {});
 
     export type MaskingMode = "alpha" | "luminance" | "match-source";
 
