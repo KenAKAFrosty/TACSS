@@ -1,4 +1,7 @@
-import { Properties as CSSProperties } from "./csstypes";
+import { Properties } from "./csstypes";
+export interface CSSProperties extends Properties<string | number> {
+
+}
 
 let styles: { [key: string]: string } = {};
 
@@ -16,7 +19,6 @@ export function tacssBracket(tacssProperties: TacssProperties) {
     let className = "tacss_" + getRandomChars(16);
     const fullCssString = buildCssStringForSelector("." + className, tacssProperties);
     const [, newCss] = extractSelectorAndCss(fullCssString);
-
 
     for (const className in styles) {
         const style = styles[className];
