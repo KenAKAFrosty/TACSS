@@ -21,5 +21,8 @@
     "bugs": {
         "url": "https://github.com/KenAKAFrosty/TACSS/issues"
     },
-    "homepage": "https://github.com/KenAKAFrosty/TACSS#readme"
+    "homepage": "https://github.com/KenAKAFrosty/TACSS#readme",
+    "devDependencies": {
+        "typescript": "^4.8.4"
+    }
 }
